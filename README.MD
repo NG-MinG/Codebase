@@ -1,3 +1,4 @@
+```HTML
 <style>
 	.content {
 		width: 700px;
