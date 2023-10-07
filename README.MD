@@ -1,4 +1,3 @@
-```HTML
 <style>
 	.content {
 		width: 700px;
@@ -607,5 +606,3 @@
 	<br />
 	<br />
 </body>
-
-```
