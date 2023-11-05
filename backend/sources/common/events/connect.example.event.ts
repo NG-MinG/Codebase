@@ -3,7 +3,7 @@ import { Server, Socket } from "socket.io";
 import IEvent from "@common/interfaces/event";
 
 class ConnectEvent implements IEvent {
-    public readonly event: string = 'connect';
+    public readonly event: string = 'connecting';
     public readonly listener: (io: Server, socket: Socket, ...args: any[]) => void;
 
     constructor() {
@@ -11,6 +11,7 @@ class ConnectEvent implements IEvent {
     }
 
     private async onConnect(io: Server, socket: Socket, message: string) {
+
         socket.user = {
             _id: new mongoose.Types.ObjectId(123123),
             firstname: '123',
@@ -19,7 +20,7 @@ class ConnectEvent implements IEvent {
             email: '123',
         };
 
-        io.socket_list.push(socket);
+        io.socket_list = [...io.socket_list, socket];
     }
 }
 
